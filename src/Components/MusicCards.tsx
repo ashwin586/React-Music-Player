@@ -1,14 +1,17 @@
 import React from "react";
-import '../Styles/MusicCards.css'
+import "../Styles/MusicCards.css";
+import { MusicCardsProps } from "../Interfaces";
 
-const MusicCards: React.FC = () => {
-  return <>
-    <div className="image-container">
-      <img src="https://picsum.photos/seed/picsum/150/150" alt="SongTemplate" />
-      <h1>Song Name</h1>
-      <h3>Song Author</h3>
-    </div>
-  </>;
+const MusicCards: React.FC<MusicCardsProps> = ({ track }) => {
+  return (
+    <>
+      <div className="image-container">
+        <img src={track?.cover} alt="SongTemplate" />
+        <h1>{track.name}</h1>
+        <h3>{track.artist}</h3>
+      </div>
+    </>
+  );
 };
 
 export default MusicCards;
