@@ -7,8 +7,8 @@ const MusicCards: React.FC<MusicCardsProps> = ({ track }) => {
     <>
       <div className="image-container">
         <img src={track?.cover} alt="SongTemplate" />
-        <h1>{track.name}</h1>
-        <h3>{track.artist}</h3>
+        <h1>{track?.name}</h1>
+        <h3>{track?.artist}</h3>
       </div>
     </>
   );

@@ -7,3 +7,14 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+.player-container{
+    background-color: #e3ddd3 ;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    position: sticky;
+    bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+} 

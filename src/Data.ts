@@ -9,7 +9,7 @@ const Data = () => {
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
-      active: false,
+      active: true,
     },
     {
       name: "Daylight",
