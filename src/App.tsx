@@ -18,7 +18,16 @@ const App: React.FC = () => {
         {tracks && (
           <div className="tracks-container">
             {tracks.map((track) => (
-              <MusicCards key={track?.id} track={track} />
+              <MusicCards
+                key={track?.id}
+                track={track}
+                setCurrentSong={setCurrentSong}
+                isPlaying={isPlaying}
+                tracks={tracks}
+                audioRef={audioRef}
+                setTracks={setTracks}
+                id={track.id}
+              />
             ))}
           </div>
         )}

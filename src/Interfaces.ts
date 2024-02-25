@@ -9,7 +9,13 @@ export interface Track {
 }
 
 export interface MusicCardsProps {
+  tracks: Track[];
   track: Track;
+  id: string;
+  setCurrentSong: (song: Track) => void;
+  audioRef: React.RefObject<HTMLAudioElement>;
+  isPlaying: boolean;
+  setTracks: (tracks: Track[]) => void;
 }
 
 export interface Song {

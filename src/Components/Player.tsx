@@ -18,6 +18,7 @@ const Player: React.FC<PlayerProps> = ({
   tracks,
   setTracks,
 }) => {
+  // For Play/Pause songs
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current?.pause();
@@ -27,6 +28,10 @@ const Player: React.FC<PlayerProps> = ({
       setIsPlaying(!isPlaying);
     }
   };
+
+  const volumeHandler = () => {
+
+  }
   return (
     <>
       <div className="current-playing">
@@ -57,6 +62,7 @@ const Player: React.FC<PlayerProps> = ({
           max={100}
           type="range"
           className="volume-range"
+          onChange={volumeHandler}
         />
       </div>
     </>
