@@ -7,7 +7,7 @@ import {
   faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Player.css";
-import { PlayerProps } from "../Interfaces";
+import { PlayerProps, Track } from "../Interfaces";
 
 const Player: React.FC<PlayerProps> = ({
   song,
@@ -18,6 +18,23 @@ const Player: React.FC<PlayerProps> = ({
   tracks,
   setTracks,
 }) => {
+  const activeSongHandler = (nextSong: Track) => {
+    const newSong = tracks.map((track) => {
+      if (track.id === nextSong.id) {
+        return {
+          ...track,
+          active: true,
+        };
+      } else {
+        return {
+          ...track,
+          active: false,
+        };
+      }
+    });
+    setTracks(newSong);
+  };
+
   // For Play/Pause songs
   const playSongHandler = () => {
     if (isPlaying) {
@@ -29,9 +46,28 @@ const Player: React.FC<PlayerProps> = ({
     }
   };
 
-  const volumeHandler = () => {
+  // For handling song skips
+  const skipSongHandler = (action: string) => {
+    const currentIndex = tracks.findIndex((track) => track.id === song.id);
+    if (action === "skip-backward") {
+      setCurrentSong(tracks[currentIndex + (1 % tracks.length)]);
+      activeSongHandler(tracks[currentIndex + (1 % tracks.length)]);
+    }
 
-  }
+    if (action === "skip-forward") {
+      if (currentIndex - (1 % tracks.length) === -1) {
+        setCurrentSong(tracks[tracks.length - 1]);
+        activeSongHandler(tracks[tracks.length - 1]);
+        if (isPlaying) audioRef.current?.play();
+        return;
+      }
+      setCurrentSong(tracks[currentIndex - (1 % tracks.length)]);
+      activeSongHandler(tracks[currentIndex - (1 % tracks.length)]);
+    }
+    if (isPlaying) audioRef.current?.play();
+  };
+
+  const volumeHandler = () => {};
   return (
     <>
       <div className="current-playing">
@@ -42,7 +78,12 @@ const Player: React.FC<PlayerProps> = ({
         </span>
       </div>
       <div className="track-controls">
-        <FontAwesomeIcon className="skip-back" size="2x" icon={faAngleLeft} />
+        <FontAwesomeIcon
+          className="skip-back"
+          size="2x"
+          icon={faAngleLeft}
+          onClick={() => skipSongHandler("skip-backward")}
+        />
         <FontAwesomeIcon
           className="play"
           size="2x"
@@ -53,6 +94,7 @@ const Player: React.FC<PlayerProps> = ({
           className="skip-forward"
           size="2x"
           icon={faAngleRight}
+          onClick={() => skipSongHandler("skip-forward")}
         />
       </div>
       <div className="audio-controls">
