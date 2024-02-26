@@ -7,7 +7,7 @@ const SearchBar: React.FC = () => {
     <>
       <div className="searchBar-container">
         <input
-          placeholder="Search for musics, albums, podcasts"
+          placeholder="Search for tracks"
           type="text"
           onChange={(e) => setMusic(e.target.value)}
           value={music}

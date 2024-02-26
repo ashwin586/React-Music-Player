@@ -2,7 +2,7 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    background-color: rgba(240, 240, 240, 5);
+    background-color: #e5ffe1;
     padding: 10px;
     border-radius: 8px;
 }
@@ -15,19 +15,23 @@
     margin-right: 20px;
 }
 
+
 .song-details h4 {
     margin: 0;
     font-size: 18px;
     color: #333;
+    background-color: #e5ffe1;
 }
 
 .song-details p {
     margin: 0;
     font-size: 14px;
     color: #777;
+    background-color: #e5ffe1;
 }
 
 .track-controls {
+    background-color: inherit;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -37,6 +41,7 @@
 .skip-back,
 .play,
 .skip-forward {
+    background-color: inherit;
     margin: 0 30px;
     cursor: pointer;
 }
@@ -46,6 +51,7 @@
 }
 
 .audio-controls {
+    background-color: inherit;
     display: flex;
     align-items: center;
     margin-top: 20px;

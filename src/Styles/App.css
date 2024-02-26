@@ -3,17 +3,22 @@
 }
 
 .tracks-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 10px));
+    grid-gap: 10px;
+    justify-content: center;
 }
 
-.player-container{
-    background-color: #e3ddd3 ;
+.player-container {
+    background-color: #fff5d4;
     height: auto;
-    padding: 20px;
+    margin: 0px 30px;
+    padding: 10px;
     position: sticky;
-    bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-} 
+    bottom: 20px;
+    display: grid;
+    grid-template-columns: 300px auto auto;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}

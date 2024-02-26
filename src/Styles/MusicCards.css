@@ -1,9 +1,13 @@
-.image-container{
-    background-color: gray;
-    height: auto;
+.image-container {
+    background-color:#5f707c;
     border-radius: 10px;
-    width: calc(25% - 100px);
-    margin-bottom: 20px;
+    overflow-x: hidden;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    overflow-x: hidden;
+    transform: scale(1.08);
 }
 
 .image-container img {
@@ -11,12 +15,19 @@
     height: auto;
     object-fit: cover;
     border-radius: 10px;
+    transition: opacity 0.3s ease;
+    overflow-x: hidden;
 }
 
-h1, h3 {
-    margin: 5px 0; 
-    font-family: Arial, sans-serif; 
-    /* color: #333; */ 
+.image-container:hover img {
+    opacity: 0.5;
+}
+
+h1,
+h3 {
+    background-color: #5f707c;
+    margin: 5px 0;
+    font-family: Arial, sans-serif;
     color: whitesmoke;
-    text-align: center; 
+    text-align: center;
 }
