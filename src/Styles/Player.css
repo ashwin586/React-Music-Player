@@ -1,4 +1,5 @@
 .current-playing {
+    overflow: hidden;
     display: flex;
     align-items: center;
     background-color: rgba(240, 240, 240, 5);
@@ -28,14 +29,15 @@
 
 .track-controls {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .skip-back,
 .play,
 .skip-forward {
-    margin: 0 50px;
+    margin: 0 30px;
     cursor: pointer;
 }
 
@@ -53,8 +55,23 @@
     flex: 1;
     width: 100%;
     cursor: pointer;
-    height: 9px;
+    height: 10px;
     outline: none;
     border-radius: 5px;
-    background-color: #9a905d;
+    background-color: #333;
+    color: #333;
+
+    &&::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        color: #333;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background: goldenrod;
+    }
 }
