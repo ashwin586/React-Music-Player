@@ -17,6 +17,8 @@ const Player: React.FC<PlayerProps> = ({
   isPlaying,
   tracks,
   setTracks,
+  volume,
+  setVolume
 }) => {
   const activeSongHandler = (nextSong: Track) => {
     const newSong = tracks.map((track) => {
@@ -73,7 +75,12 @@ const Player: React.FC<PlayerProps> = ({
     if (isPlaying) audioRef.current?.play();
   };
 
-  const volumeHandler = () => {};
+  // Handling volume
+  const volumeHandler = (e:number) => {
+    const newVolume = e / 100
+    setVolume(newVolume)
+    audioRef.current!.volume = volume ;
+  };
   return (
     <>
       <div className="current-playing">
@@ -107,13 +114,14 @@ const Player: React.FC<PlayerProps> = ({
         </div>
         <div className="audio-controls">
           <input
-            value={50}
+            value={Math.round(volume * 100)}
             min={0}
             max={100}
             type="range"
             className="volume-range"
-            onChange={volumeHandler}
+            onChange={(e) => volumeHandler(Number(e.target.value))}
           />
+          <h3 className="volume-percentage">{Number(volume * 100)}%</h3>
         </div>
     </>
   );

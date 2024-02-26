@@ -7,6 +7,10 @@ export interface Track {
   id: string;
   active: boolean;
 }
+export interface SeachProps {
+  tracks: Track[]
+  setTracks: (tracks: Track[]) => void
+}
 
 export interface MusicCardsProps {
   tracks: Track[];
@@ -30,4 +34,6 @@ export interface PlayerProps {
   audioRef: React.RefObject<HTMLAudioElement>;
   isPlaying: boolean;
   setIsPlaying: (isPlaying: boolean) => void;
+  volume: number;
+  setVolume: (volume: number) => void;
 }

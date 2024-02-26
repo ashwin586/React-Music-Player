@@ -11,9 +11,10 @@ const App: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [tracks, setTracks] = useState<Track[]>(Data);
   const [currentSong, setCurrentSong] = useState<Track>(tracks[0]);
+  const [volume, setVolume] = useState<number>(0.5);
   return (
     <>
-      <SearchBar />
+      <SearchBar tracks={tracks} setTracks={setTracks} />
       <div className="library-container">
         {tracks && (
           <div className="tracks-container">
@@ -41,6 +42,8 @@ const App: React.FC = () => {
           audioRef={audioRef}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
+          volume={volume}
+          setVolume={setVolume}
         />
       </div>
       <audio src={currentSong.audio} ref={audioRef}></audio>

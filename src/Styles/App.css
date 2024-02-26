@@ -12,10 +12,11 @@
 
 .player-container {
     background-color: #fff5d4;
+    width: 96%;
     height: auto;
     margin: 0px 30px;
     padding: 10px;
-    position: sticky;
+    position: fixed;
     bottom: 20px;
     display: grid;
     grid-template-columns: 300px auto auto;

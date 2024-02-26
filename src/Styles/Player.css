@@ -54,30 +54,25 @@
     background-color: inherit;
     display: flex;
     align-items: center;
-    margin-top: 20px;
 }
 
 .volume-range {
-    flex: 1;
+    border: none;
     width: 100%;
-    cursor: pointer;
-    height: 10px;
-    outline: none;
+    height: 5px;
+    background: #333;
     border-radius: 5px;
-    background-color: #333;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border: none;
+
+    -webkit-padding: 0;
+    padding: 0;
+
+}
+
+.volume-percentage{
+    margin-left: 5px;
+    background-color: inherit;
     color: #333;
-
-    &&::-webkit-slider-runnable-track {
-        -webkit-appearance: none;
-        color: #333;
-    }
-
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        border: none;
-        height: 15px;
-        width: 15px;
-        border-radius: 50%;
-        background: goldenrod;
-    }
 }
