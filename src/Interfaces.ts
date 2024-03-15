@@ -9,7 +9,7 @@ export interface Track {
 }
 export interface SeachProps {
   tracks: Track[]
-  setTracks: (tracks: Track[]) => void
+  setFilteredTracks: (tracks: Track[]) => void
 }
 
 export interface MusicCardsProps {

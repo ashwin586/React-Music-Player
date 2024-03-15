@@ -12,13 +12,14 @@ const App: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>(Data);
   const [currentSong, setCurrentSong] = useState<Track>(tracks[0]);
   const [volume, setVolume] = useState<number>(0.5);
+  const [filteredTracks, setFilteredTracks] = useState<Track[]>(Data);
   return (
     <>
-      <SearchBar tracks={tracks} setTracks={setTracks} />
+      <SearchBar tracks={tracks} setFilteredTracks={setFilteredTracks} />
       <div className="library-container">
-        {tracks && (
+        {filteredTracks && (
           <div className="tracks-container">
-            {tracks.map((track) => (
+            {filteredTracks.map((track) => (
               <MusicCards
                 key={track?.id}
                 track={track}

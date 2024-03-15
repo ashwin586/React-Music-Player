@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import "../Styles/SearchBar.css";
 import { SeachProps } from "../Interfaces";
 
-const SearchBar: React.FC<SeachProps> = ({ tracks, setTracks }) => {
+const SearchBar: React.FC<SeachProps> = ({ tracks, setFilteredTracks }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const performSearch = (str: string) => {
+    setSearchQuery(str);
     const filteredTracks = tracks.filter((track) =>
       track.name.toLowerCase().includes(str.toLowerCase())
     );
-    setTracks(filteredTracks);
-    setSearchQuery(str);
+    setFilteredTracks(filteredTracks);
   };
 
   return (
